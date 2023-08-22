@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./form.css">
+</head>
+<body>
+    <header>
+        <div class="logo">PRO TEAMS</div>
+        <ul>
+            <li><a href="./index.html">Teams</a></li>
+            <li><a href="#">Add Team</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="form">
+            <input type="text" name="team-name" id="team-name" placeholder="Enter team name">
+            <input type="text" name="team-logo" id="team-logo" placeholder="Url to team logo">
+            <input type="text" name="team-region" id="team-region" placeholder="Team region">
+            <input type="text" name="team-players" id="team-players" placeholder="Players separated by comma: Player1,Player2,Player3">
+            <input type="text" name="team-coach" id="team-coach" placeholder="Team coach">
+            <label for="established">Pick a date when the team was established:</label>
+            <input type="date" name="team-established" id="team-established">
+            <button id="submit-team">Submit team info</button>
+        </div>
+    </main>
+    <script src="./addTeam.js"></script>
+</body>
+</html>

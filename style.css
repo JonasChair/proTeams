@@ -1,0 +1,79 @@
+body,
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+header {
+    display: flex;
+    padding: 40px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+    background-color: white;
+}
+
+.logo {
+    font-size: 2rem;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    font-size: 1.5rem;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, .1);;
+}
+
+header a:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+}
+
+.teams-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    padding: 40px;
+    gap: 30px;
+}
+
+.team-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+    gap: 10px;
+    padding: 10px;
+}
+
+.org-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    height: 200px;
+}
+
+.org-wrapper img {
+    max-height: 160px;
+}
+
+.players-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px;
+}
