@@ -1,9 +1,15 @@
 main {
     padding: 20px;
 }
+
 .team-wrapper {
     flex-direction: row;
     justify-content: space-around;
+}
+
+.team-wrapper:hover {
+    background-color: inherit;
+    cursor: inherit;
 }
 
 .team-info-wrapper {
@@ -21,4 +27,21 @@ main {
 
 .org-wrapper {
     width: auto;
+}
+
+.delete-button {
+    font-size: 1.4rem;
+    padding: 1rem;
+    border-radius: 5px 25px 25px 5px;
+    background-color: rgb(216, 22, 22, .5);
+    border: 0;
+    transition: 0.3;
+    font-weight: 600;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+    outline: none;
+    background-color: rgb(216, 22, 22);
+    box-shadow: 3px 4px 10px rgba(0, 0, 0, .5);
 }

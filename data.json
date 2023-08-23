@@ -1,0 +1,67 @@
+[
+    {
+     "established": 1692610897,
+     "name": "Faze",
+     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Faze_Clan.svg/175px-Faze_Clan.svg.png",
+     "players": [
+      "Firstkiller",
+      "Mist",
+      "Sypical"
+     ],
+     "region": "Eu",
+     "coach": "Chrome",
+     "id": "1"
+    },
+    {
+     "established": 1692650000,
+     "name": "Team Liquid",
+     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/Team_Liquid_logo.svg/155px-Team_Liquid_logo.svg.png",
+     "players": [
+      "AcroniK",
+      "Oski",
+      "Atow"
+     ],
+     "region": "Eu",
+     "coach": "",
+     "id": "2"
+    },
+    {
+     "established": 1692610897,
+     "name": "Dignitas",
+     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Dignitas_logo.svg/220px-Dignitas_logo.svg.png",
+     "players": [
+      "Andy",
+      "Evoh",
+      "dreaz"
+     ],
+     "region": "USA",
+     "coach": "",
+     "id": "3"
+    },
+    {
+     "established": 1692650000,
+     "name": "G2 Esports",
+     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Esports_organization_G2_Esports_logo.svg/150px-Esports_organization_G2_Esports_logo.svg.png",
+     "players": [
+      "Atomic",
+      "JKnaps",
+      "Chicago"
+     ],
+     "region": "USA",
+     "coach": "Satthew",
+     "id": "4"
+    },
+    {
+     "established": 1653177600000,
+     "name": "Furia Esports",
+     "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/a/ad/FURIA_Esports_logo.svg/145px-FURIA_Esports_logo.svg.png",
+     "players": [
+      "caard",
+      "Lostt",
+      "yanxnz"
+     ],
+     "region": "SAM",
+     "coach": "Wesley \"Kairos\" Silva",
+     "id": "5"
+    }
+   ]

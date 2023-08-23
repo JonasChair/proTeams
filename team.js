@@ -1,3 +1,5 @@
+const log = (logs) => {console.log(logs)};
+
 const main = document.getElementsByTagName(`main`)[0];
 
 const diplayPlayer = (player) => {
@@ -6,6 +8,16 @@ const diplayPlayer = (player) => {
     playerWrapper.innerText = player;
     return playerWrapper;
 }
+
+
+const deleteTeam = async (team) => {
+    const response = await fetch(`https://64e32b8abac46e480e784eb4.mockapi.io/team/${team.id}`, {
+        method: `DELETE`
+    })
+    const deletedTeam = await response.json();
+    log(deletedTeam);
+    setTimeout(() => {window.location.replace(`./index.html`)},3000);
+};
 
 const displayTeam = (team) => {
     const teamWrapper = document.createElement(`div`);
@@ -44,11 +56,21 @@ const displayTeam = (team) => {
     const establishedWrapper = document.createElement(`div`);
     establishedWrapper.innerText = `Established: ` + new Date(team.established).getFullYear();
     
+    const deleteButton = document.createElement(`button`);
+    deleteButton.classList.add(`delete-button`);
+    deleteButton.id = `delete-button`;
+    deleteButton.innerText = `Delete this team`;
+
+    deleteButton.addEventListener(`click`, () => {
+        deleteTeam(team);
+    })
+
     orgWrapper.append(teamLogo,teamName);
     teamInfoWrapper.append(teamRegion,playersWrapper,teamCoach,establishedWrapper);
     
     teamWrapper.append(orgWrapper);
-    teamWrapper.append(teamInfoWrapper);
+    teamWrapper.append(teamInfoWrapper);    
+    teamWrapper.append(deleteButton);
 
     return teamWrapper;
 }
