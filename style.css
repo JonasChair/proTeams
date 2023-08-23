@@ -58,6 +58,11 @@ header a:hover {
     padding: 10px;
 }
 
+.team-wrapper:hover {
+    background-color: rgba(0, 0, 0, .1);
+    cursor: pointer;
+}
+
 .org-wrapper {
     display: flex;
     align-items: center;
