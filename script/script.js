@@ -1,8 +1,6 @@
-const log = (logs) => {console.log(logs)};
-
 const main = document.getElementsByTagName(`main`)[0];
 
-const diplayPlayer = (player) => {
+const buildPlayerWrapper = (player) => {
     const playerWrapper = document.createElement(`div`);
     playerWrapper.classList.add(`player-wrapper`);
     playerWrapper.innerText = player;
@@ -10,13 +8,13 @@ const diplayPlayer = (player) => {
 }
 
 const openTeam = (team) => {
-    localStorage.setItem(`teamId`,team.id);
-    window.location.replace(`./team.html`);
+    window.location.replace(`./team.html?teamId=${team.id}`);
 }
 
-const displayTeam = (team) => {
+const buildTeamWrapper = (team) => {
     const teamWrapper = document.createElement(`div`);
     teamWrapper.classList.add(`team-wrapper`);
+
     teamWrapper.addEventListener(`click`, () => {
         openTeam(team);
     });
@@ -30,49 +28,83 @@ const displayTeam = (team) => {
     const teamName = document.createElement(`h2`);
     teamName.innerText = team.name;
 
-    orgWrapper.append(teamLogo,teamName);
-
     const teamRegion = document.createElement(`div`);
-    teamRegion.innerText = `Region: ${team.region}` ;
-
-    teamWrapper.append(orgWrapper);
-    teamWrapper.append(teamRegion);
+    teamRegion.innerText = `Region: ${team.region}`;
 
     const playersWrapper = document.createElement(`div`);
     playersWrapper.classList.add(`players-wrapper`);
 
-    team.players.forEach((player) => {
-        playersWrapper.append(diplayPlayer(player));
-    })
-    
-    teamWrapper.append(playersWrapper);     
-    
+    team.players.forEach((player) => playersWrapper.append(buildPlayerWrapper(player)))
+
     const teamCoach = document.createElement(`div`);
     teamCoach.innerText = `Coach: ${team.coach || `vacant`}`;
-    teamWrapper.append(teamCoach);
 
     const establishedWrapper = document.createElement(`div`);
     establishedWrapper.innerText = `Established: ` + new Date(team.established).getFullYear();
 
-    
+    orgWrapper.append(teamLogo, teamName);
+
+    teamWrapper.append(orgWrapper);
+    teamWrapper.append(teamRegion);
+    teamWrapper.append(playersWrapper);
+    teamWrapper.append(teamCoach);
     teamWrapper.append(establishedWrapper);
 
     return teamWrapper;
 }
 
-const displayTeams = (teams) =>{
+const buildTeamsWrapper = (teams) => {
     const teamsWrapper = document.createElement(`div`);
     teamsWrapper.classList.add(`teams-wrapper`);
-    teams.forEach((team) => {
-        teamsWrapper.append(displayTeam(team));
-    });
+    teams
+        .sort((a, b) => a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1)
+        .forEach((team) => {
+            teamsWrapper.append(buildTeamWrapper(team));
+        });
     return teamsWrapper;
 }
 
-const getData = async () => {
-    const response = await fetch(`https://64e32b8abac46e480e784eb4.mockapi.io/team`);
-    const teams = await response.json();
-    main.append(displayTeams(teams));
+const buildMessageWrapper = (message, status) => {
+    const messageWrapper = document.createElement(`div`);
+    messageWrapper.innerText = message;
+    switch (status) {
+        case (`error`):
+            messageWrapper.style.color = `red`;
+            break;
+        default:
+            messageWrapper.style.color = `green`;
+    }
+    return messageWrapper;
 }
 
-getData();
+const buildContent = (data) => {
+    let contentWrapper;
+    if (data) {
+        contentWrapper = buildTeamsWrapper(data);
+    } else {
+        contentWrapper = buildMessageWrapper(`Something went wrong try again`, `error`)
+    }
+    return contentWrapper;
+}
+
+const getData = async () => {
+    try {
+        const response = await fetch(`https://64e32b8abac46e480e784eb4.mockapi.io/team`);
+        const data = await response.json();
+        return data;
+    } catch (err) {
+        return false;
+    }
+}
+
+const displayContent = (content) => {
+    main.append(content);
+};
+
+const buildMain = async () => {
+    const data = await getData();
+    const content = buildContent(data);
+    displayContent(content);
+}
+
+buildMain();
