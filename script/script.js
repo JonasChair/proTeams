@@ -78,13 +78,11 @@ const buildMessageWrapper = (message, status) => {
 }
 
 const buildContent = (data) => {
-    let contentWrapper;
     if (data) {
-        contentWrapper = buildTeamsWrapper(data);
+        return buildTeamsWrapper(data);
     } else {
-        contentWrapper = buildMessageWrapper(`Something went wrong try again`, `error`)
+        return buildMessageWrapper(`Something went wrong try again`, `error`)
     }
-    return contentWrapper;
 }
 
 const getData = async () => {
